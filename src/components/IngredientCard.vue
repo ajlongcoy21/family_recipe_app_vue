@@ -1,19 +1,31 @@
 <template>
   <div class="card shadow-xl bg-smog hover:border-4 hover:border-waterway">
     <div class="flex justify-center flex-col">
-      <img class="card-img mix-blend-multiply" :src="image_url" />
-      <div class="two-lines text-center font-shadowsIntoLight">
+      <img
+        class="card-img mix-blend-multiply"
+        :src="image_url"
+        alt="image of food ingredient"
+        data-cy="ingredient-image"
+      />
+      <div
+        class="two-lines text-center font-shadowsIntoLight"
+        data-cy="ingredient-name"
+      >
         {{ ingredient_name }}
       </div>
     </div>
-    <QuestionMarkCircleIcon
-      class="card-button text-blue-green float-left hover:text-waterway"
-      @mouseover="hovering"
-      @mouseleave="not_hovering"
-    ></QuestionMarkCircleIcon>
-    <PlusCircleIcon
-      class="card-button text-blue-green float-right hover:text-waterway"
-    ></PlusCircleIcon>
+    <div data-cy="ingredient-question">
+      <QuestionMarkCircleIcon
+        class="card-button text-blue-green float-left hover:text-waterway"
+        @mouseover="hovering"
+        @mouseleave="not_hovering"
+      ></QuestionMarkCircleIcon>
+    </div>
+    <div data-cy="ingredient-plus">
+      <PlusCircleIcon
+        class="card-button text-blue-green float-right hover:text-waterway"
+      ></PlusCircleIcon>
+    </div>
   </div>
   <ModalGeneral v-show="isModalVisible" @close="closeModal">
     <template v-slot:header>

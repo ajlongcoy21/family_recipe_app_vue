@@ -17,4 +17,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  globals: {
+    cy: true,
+    Cypress: true,
+    describe: true,
+    it: true,
+    beforeEach: true,
+  },
 };
