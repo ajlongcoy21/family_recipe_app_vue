@@ -39,18 +39,18 @@
           caloric_balance_data[1] > 0 ||
           caloric_balance_data[2] > 0
         "
-        class="mx-auto w-1/2"
+        class="nutrient_information:mx-auto nutrient_information:w-1/2 invisible nutrient_information:visible"
         :labels="caloric_balance_labels"
         :data="caloric_balance_data"
       ></DonutChart>
       <div class="grid grid-cols-10 gap-2 w-full overflow-hidden">
         <div
-          class="col-span-2 flex justify-center w-full pl-20 h-5 whitespace-nowrap overflow-ellipsis"
+          class="col-span-2 invisible nutrient_information:visible flex justify-center w-full h-5 whitespace-nowrap"
         >
           Nutrient Name
         </div>
         <div
-          class="col-span-8 flex justify-center w-full pl-20 h-5 whitespace-nowrap overflow-ellipsis"
+          class="col-span-8 invisible nutrient_information:visible flex justify-center w-full h-5 whitespace-nowrap"
         >
           Percentage Daily Value%
         </div>
@@ -59,11 +59,13 @@
           :key="index"
         >
           <div
-            class="col-span-2 flex justify-center w-full pl-20 h-5 whitespace-nowrap overflow-ellipsis"
+            class="col-span-10 nutrient_information:col-span-2 flex justify-center nutrient_information:justify-left w-full h-5 whitespace-nowrap"
           >
             {{ nutrient.name }} - {{ nutrient.amount }} ({{ nutrient.unit }})
           </div>
-          <div class="col-span-8 flex justify-center w-full">
+          <div
+            class="col-span-10 nutrient_information:col-span-8 flex justify-center w-full"
+          >
             <div
               class="w-5/6 bg-blue-green rounded-full h-5 text-center text-blue-100"
             >

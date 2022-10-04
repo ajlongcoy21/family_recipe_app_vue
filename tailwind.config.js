@@ -16,6 +16,10 @@ module.exports = {
         playfairDisplay: ["Playfair Display"],
         shadowsIntoLight: ["Shadows Into Light"],
       },
+      screens: {
+        nutrient_information: "1331px",
+        // => @media (min-width: 1331px) { ... }
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
