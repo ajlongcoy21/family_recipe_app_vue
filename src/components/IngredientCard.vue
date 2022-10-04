@@ -39,7 +39,7 @@
           caloric_balance_data[1] > 0 ||
           caloric_balance_data[2] > 0
         "
-        class="nutrient_information:mx-auto nutrient_information:w-1/2 invisible nutrient_information:visible"
+        class="nutrient_information:mx-auto nutrient_information:w-1/2"
         :labels="caloric_balance_labels"
         :data="caloric_balance_data"
       ></DonutChart>
