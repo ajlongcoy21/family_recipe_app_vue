@@ -154,7 +154,6 @@ export default {
         ingredientInformation(props.id, information_params.value)
           .then((response) => {
             showModal();
-            console.log(response.data);
             ingredient_nutritients.value = response.data.nutrition.nutrients;
             caloric_balance_labels.value = ["Protein %", "Fat %", "Carbs %"];
             caloric_balance_data.value = [

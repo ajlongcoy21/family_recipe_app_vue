@@ -1,6 +1,6 @@
 import IngredientCard from "../../src/components/IngredientCard.vue";
 
-describe("<IngredientCard />", () => {
+describe("<IngredientCard - Success/>", () => {
   const imageSelector = "[data-cy=ingredient-image]";
   const nameSelector = "[data-cy=ingredient-name]";
   const questionSelector = "[data-cy=ingredient-question]";
@@ -9,10 +9,16 @@ describe("<IngredientCard />", () => {
   beforeEach(() => {
     // API Intercepts
     cy.intercept(
-      "GET",
       "https://spoonacular.com/cdn/ingredients_100x100/apple.jpg",
-      { fixture: "images/apple.jpg" }
-    );
+      (req) => {
+        req.on("before:response", (res) => {
+          // force image to not be cached
+          res.headers["cache-control"] = "no-store";
+        });
+        req.reply({ fixture: "ingredients/images/apple.jpg" });
+      }
+    ).as("getImage");
+
     // Mount Component
     cy.mount(IngredientCard, {
       propsData: {
@@ -21,6 +27,9 @@ describe("<IngredientCard />", () => {
         id: 9003,
       },
     });
+
+    // Wait to catch API call
+    cy.wait("@getImage");
   });
 
   it("renders", () => {
